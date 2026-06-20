@@ -1,0 +1,11 @@
+@import "/src/assets/styles/abstracts/_variables.scss";
+
+//list groups
+.groups{
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 10px;
+    .group{
+        border: 1px solid rgba(0,0,0,0.2);
+        border-radius: 10px;
+    }
+}

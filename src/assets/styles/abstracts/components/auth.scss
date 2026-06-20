@@ -1,0 +1,107 @@
+@import "/src/assets/styles/abstracts/_variables.scss";
+
+.auth {
+  height: 100vh;
+  padding: 2rem;
+  background: $bg-main;
+  //header
+  .header {
+    h2 {
+      color: $third-color;
+      font-weight: 700;
+      font-size: 25px;
+      line-height: 34.1px;
+    }
+    a {
+      margin: 1rem 0;
+      color: #fff;
+      transition: all 0.2s ease-in;
+      &:hover {
+        border: 5px solid $bg-third;
+        i {
+          color: $third-color !important;
+        }
+      }
+    }
+    .bg-active {
+      border: 5px solid $bg-third;
+      i {
+        color: $bg-third;
+      }
+    }
+  }
+
+  //form
+  .input-group {
+    position: relative;
+    color: #fff !important;
+    input,select {
+      background: $main-color !important;
+      color: #fff !important;
+      border-left: none !important;
+      padding: 8px;
+      border: 3px solid #fff;
+      &::placeholder {
+        color:#fff;
+        font-size: 13px !important;
+     }
+    }
+    .default-option{
+      font-size: 13px !important;
+    }
+    span {
+      background: $main-color !important;
+      color: #fff !important;
+      border-right: none !important;
+      font-size: 25px;
+      border: 3px solid #fff;
+    }
+    .eye-icon {
+      position: absolute;
+      top: 25%;
+      right: 3%;
+      z-index: 100;
+      border: none;
+    }
+  }
+  label {
+    color: #fff;
+    margin-bottom: 6px;
+    line-height: 21.82px;
+    font-size: 16px;
+  }
+  button {
+    background: $btn-whiteColor;
+    transition: all 0.2s ease-in;
+    padding: 10px 24px;
+    font-weight: 500;
+    &:hover {
+      background: $main-color;
+      color: $btn-whiteColor;
+      border: 2px solid $btn-whiteColor;
+    }
+  }
+
+  // //image
+  // .image {
+  //   border-radius: 20px;
+  //   background: $secondary-color;
+  // }
+
+  //image
+.img-bg {
+  background: $secondary-color;
+  border-radius: 20px;
+  width: 640px;
+  height: 680px;
+}
+
+
+}
+
+.logout{
+  background: $bg-main;
+
+}
+
+

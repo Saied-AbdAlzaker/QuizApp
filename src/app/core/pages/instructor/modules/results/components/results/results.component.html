@@ -1,0 +1,37 @@
+<section>
+    <div class="quizze-item m-3">
+        <div class="d-flex justify-content-between mb-3">
+            <h2>Quiz results</h2>
+        </div>
+        <table class="table table-striped">
+            <thead class="bg-main p-3 text-secondaryColor">
+                <th>Title</th>
+                <th>Group name</th>
+                <th>No. of persons in group</th>
+                <th>Participants</th>
+                <th>Date</th>
+                <th>Action</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let result of completedQuizzes">
+                    <td>{{result.title}}</td>
+                    <td>{{groupName}}</td>
+                    <td>{{studentList}}</td>
+                    <td>{{result.participants}} participants</td>
+                    <td>{{result.schadule | date: 'medium'}}</td>
+                    <td class="text-center">
+                        <button
+                          style="background-color: #c5d86d"
+                          class="btn"
+                          [routerLink]="
+                            '/quizwiz/instructor/results/view-result/' + result._id
+                          "
+                        >
+                          View
+                        </button>
+                      </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>

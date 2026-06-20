@@ -1,0 +1,50 @@
+<section id="quizzes-student" class="p-4">
+    <div class="container border rounded">
+        <div class="row m-3">
+            <div class="col-md-2 ">
+                <a class="btn btn-white quizze-item border rounded px-4" (click)="openJoinDialog('500ms', '500ms')">
+                    <img src="../../../../../../../../assets/images/new-quiz-icon.svg" class="w-50 mt-3">
+                    <h2 class="text-nowrap text-center">Join Quiz</h2>
+                </a>
+            </div>
+        </div>
+        <div class="row justify-content-between mb-3">
+            <div class="col-md-10">
+                <div class="border rounded px-4 py-2">
+                    <h3 class="fs-5">Upcoming 5 quizzes</h3>
+                    <div class="row">
+                      <div *ngFor="let quiz of upcommingQuizzes"
+                    class=" col-md-6">
+                    <div class="item border my-2 rounded d-flex justify-content-between align-items-center">
+                      <!-- <img src="../../../../../../assets/images/upcome-quiz.svg" class="image rounded bg-secondaryColor"> -->
+                    <div class=" caption py-2 px-3">
+                      <h4 class="fw-bold fs-5">{{ quiz.title }}</h4>
+                      <p>
+                        {{ quiz.schadule | date : "dd/MM/YYYY" }} |
+                        {{ quiz.schadule | date : "hh:mm a" }}
+                      </p>
+                      <p>Code: {{quiz.code}} 
+                        <a [cdkCopyToClipboard]="quiz.code" matTooltip="Copy" class="text-third mx-2" >
+                            <i class="fa-solid fa-copy fs-5 fw-bold pointer"></i>
+                          </a>
+                      </p>
+                      <h4 class="mb-0">Number of Questions: {{ quiz.questions.length }}</h4>
+                      
+                    </div>
+                    <span class="pointer ms-auto me-3"
+                      [routerLink]="['/quizwiz/student/answer', quiz._id]">
+                       <i
+                          class="fa-solid fs-4 fa-circle-arrow-right text-iconColor" 
+                          matTooltip="Open"
+                          ></i>
+                    </span>
+                    </div>
+                    
+                  </div>
+                    </div>
+                  
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,110 @@
+<section id="question" class="p-5">
+  <nav
+    class="fs-5 mb-3"
+    style="--bs-breadcrumb-divider: '>>'"
+    aria-label="breadcrumb"
+  >
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a routerLink="/quizwiz/instructor">Instructor</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a routerLink="/quizwiz/instructor/quizzes">Quizzes</a>
+      </li>
+      <li class="breadcrumb-item active" aria-current="page">Questions</li>
+    </ol>
+  </nav>
+  <div class="container border rounded">
+    <div class="row justify-content-between align-items-center mt-3 me-3">
+      <h3 class="col-md-4">Bank Of Questions</h3>
+      <div class="col-md-4 d-flex flex-nowrap border rounded-pill px-0">
+        <select
+          class="form-select rounded-pill w-50 border-0"
+          [(ngModel)]="difficultySearch"
+          aria-label="Difficulty"
+        >
+          <option selected value="">Difficulty</option>
+          <option
+            *ngFor="let item of difficulty"
+            class="my-3 p-3"
+            [value]="item"
+          >
+            {{ item }}
+          </option>
+        </select>
+
+        <select
+          class="form-select rounded-pill w-50 border-0"
+          [(ngModel)]="typeSearch"
+          aria-label="Type"
+        >
+          <option selected value="">Type</option>
+          <option *ngFor="let item of type" class="my-3 p-3" [value]="item">
+            {{ item }}
+          </option>
+        </select>
+
+        <button class="border-0 bg-secondaryColor rounded-pill"
+        (click)="searchQuestion()">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </div>
+      <div
+        class="py-2 pointer d-flex justify-content-center align-items-center col-md-3 new-item"
+        (click)="openDialog('500ms', '500ms')"
+      >
+        <span
+          ><img src="../../../../../../../../assets/images/add-group-icon.svg"
+        /></span>
+        <span class="ps-3 text-nowrap">Add Quesion</span>
+      </div>
+    </div>
+    <div class="quizze-item me-3">
+      <table class="table border rounded mt-3">
+        <thead class="bg-main p-3 text-secondaryColor">
+          <th>Question Title</th>
+          <th>Question Desc</th>
+          <th>Question difficulty level</th>
+          <th>Date</th>
+          <th class="text-center">Actions</th>
+        </thead>
+        <tbody>
+          <tr class="border rounded" *ngFor="let item of questions">
+            <td>{{ item.title }}</td>
+            <td>{{ item.description }}</td>
+            <td>{{ item.difficulty }}</td>
+            <td>12 / 02 / 2023</td>
+            <td>
+              <div class="actions text-center fs-5 text-nowrap">
+                <span class="mx-2"
+                  ><i
+                    (click)="openEditDialog('500ms', '500ms', item._id)"
+                    class="fa-regular fa-pen-to-square text-iconSecondColor pointer"
+                    matTooltip="Edit"
+                  ></i
+                ></span>
+                <span class="mx-2"
+                  ><i
+                    (click)="openDeleteDialog(item._id, item.title)"
+                    class="fa-regular fa-trash-can text-iconSecondColor pointer"
+                    matTooltip="Delete"
+                  ></i
+                ></span>
+                <span class="mx-2"
+                  ><i
+                    (click)="openViewDialog('500ms', '500ms', item._id, true)"
+                    class="fa-regular fa-eye text-iconSecondColor pointer"
+                    matTooltip="View"
+                  ></i
+                ></span>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div *ngIf="questions?.length==0" class="text-center">
+          <img src="../../../../../../../../assets/images/no-data.png" alt="" class="w-25 mx-auto mt-3">
+        </div>
+    </div>
+  </div>
+</section>

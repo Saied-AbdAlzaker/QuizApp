@@ -1,0 +1,32 @@
+<section id="join-quiz" class="setup">
+  <div class="container text-center pt-5">
+    <h2>Join Quiz</h2>
+    <div class="px-5 py-4">
+      <p>Input the code received for the quiz below to join</p>
+      <form [formGroup]="joinQuizForm" class="input-group input-group-lg mb-3 d-flex flex-nowrap">
+        <span class="input-group-text header w-25" id="inputGroup-sizing-lg"
+          >Code</span
+        >
+        <input
+          formControlName="code" 
+          type="text"
+          class="form-control"
+          aria-label="code"
+          aria-describedby="code"
+        />
+      </form>
+    </div>
+    <div class="row dialog-header justify-content-center">
+      <div class="col-md-3 icons px-5">
+        <div class="d-flex justify-content-center icons-div">
+          <i (click)="joinQuiz(joinQuizForm)"
+          class="fa-solid fa-check fs-3 fw-bold pointer py-3 px-4"></i>
+          <i
+            class="fa-solid fa-xmark fs-3 fw-bold pointer py-3 px-4 second"
+            (click)="onNoClick()"
+          ></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

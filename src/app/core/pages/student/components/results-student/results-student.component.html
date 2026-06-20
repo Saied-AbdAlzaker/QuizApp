@@ -1,0 +1,29 @@
+<section>
+    <div class="quizze-item m-3">
+        <div class="d-flex justify-content-between mb-3">
+            <h2>Quiz results</h2>
+        </div>
+        <table class="table table-striped">
+            <thead class="bg-main p-3 text-secondaryColor">
+                <th>Title</th>
+                <th>Score</th>
+                <th>No. of question in quiz</th>
+                <th>Participants</th>
+                <th>Date</th>
+                <!-- <th>Action</th> -->
+            </thead>
+            <tbody>
+                <tr *ngFor="let result of resultsData">
+                    <td>{{result.quiz.title}}</td>
+                    <td>{{result.result.score}}</td>
+                    <td>{{result.quiz.questions_number}}</td>
+                    <td>{{result.result.participant?.first_name}} {{result.result.participant?.last_name}}</td>
+                    <td>{{result.quiz.schadule | date: 'medium'}}</td>
+                    <!-- <td>
+                        <button class="border-0 rounded bg-third fw-bold">View</button>
+                    </td> -->
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>

@@ -1,0 +1,46 @@
+<section id="groups">
+  <div class="container px-5 py-4">
+    <div class="row justify-content-end">
+      <div
+        class="py-2 pointer d-flex justify-content-center align-items-center col-md-3 new-item"
+        (click)="openDialog('500ms', '500ms')"
+      >
+        <span
+          ><img src="../../../../../../../../assets/images/add-group-icon.svg"
+        /></span>
+        <span class="ps-3 text-nowrap">Add Group</span>
+      </div>
+    </div>
+    <div class="row mt-3 groups p-3">
+      <h3>Groups List</h3>
+      <div class="col-md-6 mb-3" *ngFor="let group of groups">
+        <div
+          class="group py-2 px-3 d-flex justify-content-between align-items-center"
+        >
+          <div class="">
+            <p class="group-name mt-2">Group : {{ group.name }}</p>
+            <p class="text-muted group-student">
+              No. of students : {{ group.students.length }}
+            </p>
+          </div>
+          <div class="fs-4">
+            <span class="mx-2"
+              ><i
+                (click)="openEditDialog('500ms', '500ms', group)"
+                class="fa-regular fa-pen-to-square text-third pointer"
+                matTooltip="Edit"
+              ></i
+            ></span>
+            <span class="mx-2"
+              ><i
+                (click)="openDeleteDialog(group)"
+                class="fa-regular fa-trash-can text-third pointer"
+                matTooltip="Delete"
+              ></i
+            ></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

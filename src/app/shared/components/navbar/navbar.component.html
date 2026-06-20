@@ -1,0 +1,53 @@
+<section id="navbar">
+  <div class="container py-0">
+    <div class="row justify-content-between align-items-center">
+      <div class="col-md-2 pb-1 pt-2 dash-head">Dashboard</div>
+      <div class="col-md-8">
+        <div class="row justify-content-end align-items-center">
+          <div class="col-md-4 new-item">
+            <div *ngIf="role=='Instructor'" class="py-2 pointer d-flex justify-content-center align-items-center" (click)="openDialog('500ms', '500ms')">
+              <span><img src="../../../../assets/images/new-quiz-icon.svg" /></span>
+              <span class="px-3 text-nowrap">New quiz</span>
+            </div>
+            <div *ngIf="role=='Student'" 
+            class="py-2 pointer d-flex justify-content-center align-items-center"
+            (click)="openJoinDialog('500ms', '500ms')"
+            >
+              <span><img src="../../../../assets/images/new-quiz-icon.svg" /></span>
+              <span class="px-3 text-nowrap">Join Quiz</span>
+            </div>
+          </div>
+          <!-- <div class="col-md-3 d-flex justify-content-around fs-3">
+            <i class="fa-solid fa-envelope"></i>
+            <i class="fa-solid fa-bell"></i>
+          </div> -->
+          <div class="col-md-6 d-flex align-items-center user-info justify-content-between">
+            <div class="info px-3 pb-1 pt-2">
+              <h2 class="m-0 text-nowrap">{{userName}}</h2>
+              <span class="text-third">{{role}}<span *ngIf="role=='Student'"> | {{userGroup}}</span></span>
+            </div>
+            <div class="mx-0">
+              <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                <mat-icon>expand_more</mat-icon>
+              </button>
+              <mat-menu #menu="matMenu">
+                <button [routerLink]="['/quizwiz/profile/',userId]" mat-menu-item>
+                  <mat-icon>account_circle</mat-icon>
+                  <span>Profile</span>
+                </button>
+                <button routerLink="/auth/changePassword" mat-menu-item>
+                  <mat-icon>lock-open</mat-icon>
+                  <span>Change Password</span>
+                </button>
+                <button mat-menu-item (click)="openLogoutDialog()">
+                  <mat-icon>logout</mat-icon>
+                  <span>Logout</span>
+                </button>
+              </mat-menu>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

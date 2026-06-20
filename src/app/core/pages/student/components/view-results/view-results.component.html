@@ -1,0 +1,34 @@
+<section id="profile">
+    <div class="container px-5 mt-4">
+        <div class="row">
+            <div class="col-md-6 border rounded header ps-4 py-3">
+              <div *ngFor="let item of resultsInstructor">
+                <div class="info">
+                    <span class="name">Title</span>
+                    <span class="value">{{item?.quiz.title}}</span>
+                </div>
+                <div class="info">
+                    <span class="name">Status</span>
+                    <span class="value">{{item?.quiz.status}}</span>
+                </div>
+                <div class="info">
+                    <span class="name">Number Of Question</span>
+                    <span class="value">{{item?.quiz.questions_number}}</span>
+                </div>
+                <div class="info">
+                    <span class="name">Group</span>
+                    <span class="value">{{item?.group?.name}}</span>
+                </div>
+                <div class="info">
+                    <span class="name">Date</span>
+                    <span class="value">{{item?.schadule}}</span>
+                </div>
+                <div class="info">
+                    <span class="name">Duration</span>
+                    <span class="value">{{item?.duration}}</span>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+</section>

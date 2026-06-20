@@ -1,0 +1,35 @@
+@import "/src/assets/styles/abstracts/_variables.scss";
+
+#student {
+  
+  button{
+    transition: all 0.2s ease-in;
+    padding: 6px 40px;
+    font-size: 16px;
+    &.primary{
+      color: $main-color;
+      background: $bg-secondary;
+      border: 1px solid $main-color;
+      border-radius: 20px;
+    }
+    &.primary:hover{
+      color: #fff;
+      background: $main-color;
+      border-radius: 20px;
+    }
+    &.third{
+        color: $main-color;
+        background: $third-color;
+        border-radius: 20px;
+        border: none !important;
+    }
+    &.third:hover{
+        opacity: .8;
+    }
+}
+
+.img-end{
+  position: absolute;
+  right: 50px;
+}
+}

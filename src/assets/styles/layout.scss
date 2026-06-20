@@ -1,0 +1,21 @@
+@import "./abstracts/components/auth.scss";
+@import "./abstracts/components/sidebar.scss";
+@import "./abstracts/components/navbar.scss";
+@import "./abstracts/components/dashboard.scss";
+@import "./abstracts/components/quizzes.scss";
+@import "./abstracts/components/groups.scss";
+@import "./abstracts/components/student.scss";
+@import "./abstracts/components/profile.scss";
+
+@import "~ng-zorro-antd/select/style/index.min.css";
+@import "~ng-zorro-antd/popconfirm/style/index.min.css";
+
+
+
+@import "./abstracts/_utilities.scss";
+@import "./abstracts/_variables.scss";
+@import "./abstracts/mixins";
+
+
+@import "./base/_typography.scss";
+@import "./base/_base.scss";

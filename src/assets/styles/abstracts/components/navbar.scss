@@ -1,0 +1,35 @@
+@import "/src/assets/styles/abstracts/_variables.scss";
+@import "/src/assets/styles/abstracts/mixins";
+
+#navbar {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  font-size: 20px;
+  font-weight: 500;
+  
+  .info{
+    border-left: 1px solid rgba(0, 0, 0, 0.2);
+  }
+
+  .new-quiz {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 30px;
+  }
+}
+//responsive
+@include response(tablet) {
+  #navbar {
+    padding: 5px 5px !important;
+    transition: all 0.1s ease !important;
+    .new-quiz {
+      .text-nowrap {
+        display: none;
+      }
+    }
+  }
+}
+@include response(mobile) {
+  #navbar {
+    padding: 20px 5px !important;
+  }
+}
+

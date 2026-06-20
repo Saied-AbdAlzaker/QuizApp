@@ -1,0 +1,64 @@
+<section id="profile" class="px-5 pt-4 pb-5 setup">
+  <div class="container">
+    <div class="container">
+      <div class="d-flex justify-content-between mb-5 pb-5">
+        <h2>Update student</h2>
+        <div class="d-flex justify-content-center">
+          <div
+            class="setup-item pointer"
+            (click)="updateAccount(updateAccountForm)"
+          >
+            <span class="item-check"
+              ><i class="fa-solid fa-check fs-1 fw-bold"></i
+            ></span>
+          </div>
+
+          <div class="setup-item pointer" (click)="onClose()">
+            <span><i class="fa-solid fa-xmark fs-1 fw-bold"></i></span>
+          </div>
+        </div>
+      </div>
+
+      <form [formGroup]="updateAccountForm" class="my-5 header">
+        <div class="input-group input-group-lg mb-3 d-flex flex-nowrap">
+          <span class="input-group-text name" id="inputGroup-sizing-lg"
+            >First Name</span
+          >
+          <input
+            type="text"
+            class="form-control value"
+            formControlName="first_name"
+            aria-label="first_name"
+            aria-describedby="first_name"
+          />
+        </div>
+
+        <div class="input-group input-group-lg mb-3 d-flex flex-nowrap">
+          <span class="input-group-text name" id="inputGroup-sizing-lg"
+            >Last Name</span
+          >
+          <input
+            type="text"
+            class="form-control value"
+            formControlName="last_name"
+            aria-label="last_name"
+            aria-describedby="last_name"
+          />
+        </div>
+
+        <div class="input-group input-group-lg mb-3 d-flex flex-nowrap">
+          <span class="input-group-text name" id="inputGroup-sizing-lg"
+            >Email</span
+          >
+          <input
+            type="text"
+            class="form-control value"
+            formControlName="email"
+            aria-label="email"
+            aria-describedby="email"
+          />
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

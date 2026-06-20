@@ -1,0 +1,25 @@
+<div class="Delete setup">
+    <div class="container">
+      <div class="row justify-content-between dialog-header">
+        <div class="col-md-6 px-4 pt-4">
+          <h2>Delete <span class="text-third">{{data.name}}</span>
+             <span *ngIf="data.groupName">
+                from <span class="text-third">{{data.groupName}}</span>
+             </span>
+          </h2>
+        </div>
+        <div class="col-md-3">
+            <div class="d-flex justify-content-end">
+                <i class="fa-solid fa-check fs-1 fw-bold pointer py-3 px-4" [mat-dialog-close]="data" cdkFocusInitial></i>
+                <i class="fa-solid fa-xmark fs-1 fw-bold pointer py-3 px-4" (click)="onNoClick()"></i>
+            </div>
+        </div>
+      </div>
+        
+  <div class="text-center p-5">
+    <img src="" class="mb-5 "  alt="">
+    <div class="text-center">
+      <p>are you sure you want to delete {{data.name}} ? if you are sure just click on correct icon</p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+<section id="join-quiz" class="setup">
+    <div class="container text-center pt-5">
+      <h2>Add<span class="text-third"> {{data.first_name}} </span>to group</h2>
+      <div class="px-5 py-4">
+        <div class="input-group mb-3 mx-2 select-group header d-flex flex-nowrap">
+            <label class="input-group-select p-2 w-25" for="inputGroupSelect01">Group</label>
+            <select class="form-select p-2 header pointer" [(ngModel)]="groupId"  id="inputGroupSelect01">
+              <option *ngFor="let group of groups" [value]="group._id" selected
+              >{{group?.name}} <span></span></option>
+            </select>
+          </div>
+      </div>
+      <div class="row dialog-header justify-content-center">
+        <div class="col-md-3 icons px-5">
+          <div class="d-flex justify-content-center icons-div">
+            <i
+            class="fa-solid fa-check fs-3 fw-bold pointer py-3 px-4"
+            (click)="addToGroup(data._id,groupId)"
+            ></i>
+            <i
+              class="fa-solid fa-xmark fs-3 fw-bold pointer py-3 px-4 second"
+              (click)="onClose()"
+            ></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  

@@ -1,0 +1,99 @@
+<section id="setup-quiz" class="setup">
+  <div class="container">
+    <div class="row justify-content-between dialog-header">
+      <div class="col-md-6 px-4 pt-4">
+        <h2 *ngIf="isAddQuiz == true">Set up a new quiz</h2>
+        <h2 *ngIf="isUpdateQuiz == true">Update <span class="text-third">{{quizze?.title}}</span> quiz</h2>
+        <h2 *ngIf="isReassign == true">Reassign <span class="text-third">{{quizze?.title}}</span> quiz</h2>
+
+      </div>
+      <div class="col-md-3">
+        <div class="d-flex justify-content-end">
+          <i class="fa-solid fa-check fs-1 fw-bold pointer py-3 px-4" (click)="onSubmit(setupForm)"></i>
+          <!-- <i *ngIf="isReasign==true" class="fa-solid fa-check fs-1 fw-bold pointer py-3 px-4" (click)="reasignQuiz(reasignForm)"></i> -->
+          <i class="fa-solid fa-xmark fs-1 fw-bold pointer py-3 px-4" (click)="onNoClick()"></i>
+        </div>
+
+      </div>
+    </div>
+    <form [formGroup]="setupForm">
+      <div class="p-5">
+        <h2 class="fs-5 fw-normal">Details</h2>
+
+        <div *ngIf="isAddQuiz==true || isUpdateQuiz==true" class="input-group input-group-lg">
+          <span class="input-group-text header" id="inputGroup-sizing-lg">Title:</span>
+          <input type="text" class="form-control" formControlName="title" aria-label="title" aria-describedby="title">
+        </div>
+
+        <div class="d-flex mt-3">
+          <div *ngIf="isAddQuiz==true || isReassign==true" class="input-group mb-3 me-2 select-group header d-flex flex-nowrap">
+            <label class="input-group-select p-3" for="inputGroupSelect01">Duration (in minutes)</label>
+            <select class="form-select p-3 header"  formControlName="duration" id="inputGroupSelect01">
+              <option selected value="60">1min</option>
+              <option selected value="180">3min</option>
+              <option value="300">5min</option>
+              <option value="600">10min</option>
+
+            </select>
+          </div>
+          <div  *ngIf="isAddQuiz==true" class="input-group mb-3 mx-2 select-group header d-flex flex-nowrap">
+            <label class="input-group-select p-3 " for="inputGroupSelect01">No. of questions</label>
+            <select class="form-select p-3 header"  formControlName="questions_number" id="inputGroupSelect01">
+              <option selected value="5">5</option>
+              <option value="10">10</option>
+              <option value="15">15</option>
+              <option value="20">20</option>
+              <option value="25">25</option>
+              <option value="30">30</option>
+            </select>
+          </div>
+          <div  *ngIf="isAddQuiz==true" class="input-group mb-3 ms-2 select-group header d-flex flex-nowrap">
+            <label class="input-group-select p-3 " for="inputGroupSelect01">Score per question</label>
+            <select class="form-select p-3 header"  formControlName="score_per_question" id="inputGroupSelect01">
+              <option selected value="5">5</option>
+              <option value="10">10</option>
+              <option value="10">15</option>
+            </select>
+          </div>
+        </div>
+
+        <div *ngIf="isAddQuiz==true" class="input-group">
+          <span class="input-group-text header">Description:</span>
+          <textarea class="form-control header"  formControlName="description" rows="3"
+            aria-label="With textarea"></textarea>
+        </div>
+
+        <div *ngIf="isAddQuiz==true || isReassign==true" class="input-group input-group-lg my-3">
+          <span class="input-group-text header" id="inputGroup-sizing-lg">Schedule</span>
+          <input type="datetime-local"  formControlName="schadule" id="birthdaytime" name="birthdaytime"
+            class="form-control">
+        </div>
+
+        <div class="d-flex mt-3">
+          <div *ngIf="isAddQuiz==true" class="input-group mb-3 me-2 select-group header d-flex flex-nowrap">
+            <label class="input-group-select p-3 " for="inputGroupSelect01">Difficulty level</label>
+            <select class="form-select p-3 header"  formControlName="difficulty" id="inputGroupSelect01">
+              <option value="easy" selected>easy</option>
+              <option value="medium">medium</option>
+              <option value="hard">hard</option>
+            </select>
+          </div>
+          <div *ngIf="isAddQuiz==true" class="input-group mb-3 mx-2 select-group header d-flex flex-nowrap">
+            <label class="input-group-select p-3 " for="inputGroupSelect01">Category type</label>
+            <select class="form-select p-3 header"  formControlName="type" id="inputGroupSelect01">
+              <option value="FE" selected>FE</option>
+              <option value="BE">BE</option>
+              <option value="DO">DO</option>
+            </select>
+          </div>
+          <div *ngIf="isAddQuiz==true || isReassign==true" class="input-group mb-3 ms-2 select-group header d-flex flex-nowrap">
+            <label class="input-group-select p-3 " for="inputGroupSelect01">Group name</label>
+            <select class="form-select p-3 header"  formControlName="group" id="inputGroupSelect01">
+              <option *ngFor="let item of groups" [value]="item._id">{{item.name}}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>

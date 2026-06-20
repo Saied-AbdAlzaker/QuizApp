@@ -1,0 +1,33 @@
+<section class="mt-4 px-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10">
+                <div class="border rounded quizze-item  px-4 py-2">
+                    <div class="d-flex justify-content-between">
+                        <h2>Completed Quizzes</h2>
+                        <h4 class="pointer" routerLink="/quizwiz/student/results">
+                            Results
+                            <i class="fa-solid fa-arrow-right-long text-iconColor"></i>
+                        </h4>
+                    </div>
+                    <table class="table table-striped">
+                        <thead class="bg-main p-3 text-secondaryColor">
+                            <th>Title</th>
+                            <th>Group name</th>
+                            <th class="w-25">No. of persons in group</th>
+                            <th>Closed Date</th>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let quiz of completedQuizzes">
+                                <td>{{quiz?.title}}</td>
+                                <td>{{groupName}}</td>
+                                <td>{{quiz?.participants}}</td>
+                                <td>{{quiz?.closed_at|date:'dd / MM / yyyy'}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+            </div>
+            </div>
+        </div>
+    </div>
+</section>

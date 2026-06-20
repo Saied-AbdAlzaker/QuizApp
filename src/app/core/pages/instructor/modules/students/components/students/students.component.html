@@ -1,0 +1,177 @@
+<section id="student">
+  <div class="container">
+    <div class="border rounded pt-3 pb-5 mt-3">
+      <div class="ms-3">
+        <h3 *ngIf="studentList == null" class="mt-3 fs-5">Students list</h3>
+        <h3 *ngIf="studentList" class="mt-3 fs-5">
+          <span class="text-third">{{ groupName }} </span>Students list
+        </h3>
+        <div class="d-flex">
+          <button
+            class="btn primary mx-2 bg-secondaryColor"
+            (click)="studentsWithoutGroup = null"
+            (click)="studentList = null"
+          >
+            All Students
+          </button>
+          <button class="btn primary mx-2 bg-secondaryColor" (click)="allStudentsWithoutGroups()">
+            Students without group
+          </button>
+          <div *ngFor="let group of groups">
+            <button class="btn primary mx-2" (click)="getGroupById(group._id)">
+              {{ group.name }}
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- students without group -->
+      <div *ngIf="studentsWithoutGroup !== null" class="row mx-2">
+        <div
+          class="col-md-6 rounded py-3 position-relative"
+          *ngFor="let item of studentsWithoutGroup"
+        >
+          <div class="border rounded d-flex align-items-center">
+            <div class="image w-25">
+              <img
+                src="../../../../../../../../assets/images/dummy-user.jpg"
+                class="w-75 border rounded"
+              />
+            </div>
+            <div class="caption">
+              <h4 class="mb-1">{{ item.first_name }} {{ item.last_name }}</h4>
+              <p>{{ item.email }}</p>
+            </div>
+            <div class="icon-end ms-auto me-2 fs-6 text-nowrap">
+              <span class="pointer mx-2">
+                <i
+                  class="fa-regular fa-pen-to-square text-third"
+                  (click)="openDialog('500ms', '500ms', item)"
+                  matTooltip="Add to group"
+                >
+                </i>
+              </span>
+              <span class="pointer mx-2">
+                <i
+                  class="fa-regular fa-trash-can text-third"
+                  (click)="
+                    openDeleteDialog(
+                      '500ms',
+                      '500ms',
+                      item._id,
+                      item.first_name
+                    )
+                  "
+                  matTooltip="Delete"
+                >
+                </i>
+              </span>
+              <span class="pointer mx-2">
+                <i
+                  class="fa-solid fa-circle-arrow-right text-third"
+                  matTooltip="View"
+                ></i>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- students for group -->
+      <div *ngIf="studentList !== null" class="row mx-2">
+        <div
+          class="col-md-6 rounded py-3 position-relative"
+          *ngFor="let item of studentList"
+        >
+          <div class="border rounded d-flex align-items-center">
+            <div class="image w-25">
+              <img
+                src="../../../../../../../../assets/images/dummy-user.jpg"
+                class="w-75 border rounded"
+              />
+            </div>
+            <div class="caption">
+              <h4 class="mb-1">{{ item.first_name }} {{ item.last_name }}</h4>
+              <p>{{ item.email }}</p>
+            </div>
+            <div class="icon-end ms-auto me-2 fs-6 text-nowrap">
+              <!-- <span class="pointer mx-2">
+                <i class="fa-regular fa-pen-to-square text-third" (click)="openDialog('500ms', '500ms')"></i>
+              </span> -->
+              <span class="pointer mx-2">
+                <i
+                  class="fa-regular fa-trash-can text-third"
+                  (click)="
+                    openDeleteFromGroupDialog(
+                      '500ms',
+                      '500ms',
+                      item._id,
+                      groupId,
+                      item.first_name,
+                      groupName,
+                      true
+                    )
+                  "
+                  matTooltip="Delete from group"
+                ></i>
+              </span>
+              <span class="pointer mx-2">
+                <i
+                  class="fa-solid fa-circle-arrow-right text-third"
+                  matTooltip="View"
+                ></i>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- all students -->
+      <div
+        *ngIf="studentList == null && studentsWithoutGroup == null"
+        class="row mx-2"
+      >
+        <div
+          class="col-md-6 rounded py-3 position-relative"
+          *ngFor="let item of studentGroups"
+        >
+          <div class="border rounded d-flex align-items-center">
+            <div class="image w-25">
+              <img
+                src="../../../../../../../../assets/images/dummy-user.jpg"
+                class="w-75 border rounded"
+              />
+            </div>
+            <div class="caption">
+              <h4 class="mb-1">{{ item.first_name }} {{ item.last_name }}</h4>
+              <p>{{ item.group?.name }} | {{ item.role }}</p>
+            </div>
+            <div class="icon-end ms-auto me-2 fs-6 text-nowrap">
+              <!-- <span class="pointer mx-2">
+                <i class="fa-regular fa-pen-to-square text-third" (click)="openDialog('500ms', '500ms')"></i>
+              </span> -->
+              <span class="pointer mx-2">
+                <i
+                  class="fa-regular fa-trash-can text-third"
+                  (click)="
+                    openDeleteDialog(
+                      '500ms',
+                      '500ms',
+                      item._id,
+                      item.first_name
+                    )
+                  "
+                  matTooltip="Delete"
+                ></i>
+              </span>
+              <span class="pointer mx-2">
+                <i
+                  class="fa-solid fa-circle-arrow-right text-third"
+                  matTooltip="View"
+                  [routerLink]="['/quizwiz/profile', item._id]"
+                ></i>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

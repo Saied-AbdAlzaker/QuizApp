@@ -1,0 +1,64 @@
+$main-color: #0d1321;
+$secondary-color: #ffeddf;
+$third-color: #c5d86d;
+$white-color: rgba(255, 255, 255, 1);
+$btn-color: #333333;
+$btn-whiteColor: #F5F5F5;
+$iconColor: rgba(197, 216, 109, 1);
+$iconSecondColor: rgba(251, 124, 25, 1);
+
+$bg-main: $main-color;
+$bg-secondary: $secondary-color;
+$bg-third: $third-color;
+$bg-white: $white-color;
+
+$text-main: $main-color;
+$text-secondary: $secondary-color;
+$text-third: $third-color;
+$text-iconColo: $iconColor;
+$icon-secondColor: $iconSecondColor;
+$btnColor: $btn-color;
+$btnWhiteColor: $btn-whiteColor;
+
+.bg-main {
+  background-color: $bg-main;
+}
+.bg-secondaryColor {
+  background-color: $bg-secondary;
+}
+.bg-third {
+  background-color: $bg-third;
+}
+
+.text-main {
+  color: $text-main;
+}
+.text-secondaryColor {
+  color: $text-secondary;
+}
+.text-third {
+  color: $text-third;
+}
+
+.btn-color{
+    background-color: $btnColor;
+}
+.btn-white{
+    background-color: $bg-white;
+}
+
+.btn-whiteColor{
+    background-color: $btnWhiteColor;
+}
+
+.text-iconColor{
+    color: $text-iconColo;
+}
+.text-iconColor{
+    color: $text-iconColo;
+}
+.text-iconSecondColor{
+    color: $icon-secondColor;
+}
+
+

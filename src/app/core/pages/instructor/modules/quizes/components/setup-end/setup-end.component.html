@@ -1,0 +1,18 @@
+<section id="end">
+  <div class="container py-5">
+    <div class="row justify-content-center">
+      <div class="text-center">
+        <span class="fs-1 fw-bold"><i class="fa-solid fa-circle-check text-main mb-3"></i></span>
+        <h3 *ngIf="role=='Instructor'" class="fw-semibold fs-5">Quiz was successfully created</h3>
+        <div *ngIf="role=='Instructor'" class="w-50 code m-auto d-flex justify-content-between align-items-center">
+          <span class="bg-secondaryColor code-title px-4 py-2">Code: </span>
+          <span class="fw-bold fs-6">{{data}}</span>
+          <a [cdkCopyToClipboard]="data" matTooltip="Copy" class="text-black" ><i class="fa-solid fa-copy fs-3 fw-bold pointer"></i></a>
+      </div>
+      <h3 *ngIf="role=='Student'" class="fw-semibold fs-5">{{data?.message}}</h3>
+      <h3 *ngIf="role=='Student'" class="fw-semibold fs-5 mb-0">Score: {{data?.score}}</h3>
+      <button (click)="onClose()" cdkFocusInitial class="w-25 mt-5 third">Close</button>
+    </div>
+  </div>
+  </div>
+</section>

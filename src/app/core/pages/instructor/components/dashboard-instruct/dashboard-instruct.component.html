@@ -1,0 +1,73 @@
+<section id="dash-instruct">
+  <div class="container px-5 mt-3">
+    <div class="row">
+      <div class="col-md-6 border rounded">
+        <div class="mt-3 d-flex justify-content-between align-items-center">
+          <h3 class="fs-5">Upcoming 5 quizzes</h3>
+          <h4
+            class="pointer ms-auto pe-3 fw-medium"
+            routerLink="/quizwiz/instructor/quizzes"
+          >
+            Quiz directory
+            <i class="fa-solid fa-arrow-right-long text-third"></i>
+          </h4>
+        </div>
+        <div
+          *ngFor="let quiz of quizzes"
+          class="item border m-2 rounded d-flex justify-content-start align-items-center"
+        >
+          <!-- <img src="../../../../../../assets/images/upcome-quiz.svg" class="image rounded bg-secondaryColor"> -->
+          <div class="caption py-3 px-5">
+            <h4 class="fw-bold fs-5">{{ quiz.title }}</h4>
+            <p>
+              {{ quiz.schadule | date : "dd/MM/YYYY" }} |
+              {{ quiz.schadule | date : "hh:mm a" }}
+            </p>
+            <h4>Number of Questions: {{ quiz.questions.length }}</h4>
+          </div>
+          <h4
+            class="pointer ms-auto pe-5 fw-bold"
+            [routerLink]="['/quizwiz/instructor/quizzes/quizDetails',quiz._id]"
+          >
+            Open <i class="fa-solid fa-circle-arrow-right text-third"></i>
+          </h4>
+        </div>
+        <div *ngIf="quizzes.length==0" class="text-center">
+          <img src="../../../../../../assets/images/no-data.png" alt="" class="w-50 mx-auto mt-3">
+        </div>
+      </div>
+
+      <div class="col-md-5 ms-3 border rounded">
+        <div class="mt-3 d-flex justify-content-between align-items-center">
+          <h3 class="fs-5">Top 5 Students</h3>
+          <h4
+            class="pointer ms-auto pe-3 fw-medium"
+            routerLink="/quizwiz/instructor/students"
+          >
+            All Students <i class="fa-solid fa-arrow-right-long text-third"></i>
+          </h4>
+        </div>
+        <div
+          class="item my-2 border rounded d-flex align-items-center"
+          *ngFor="let student of students"
+        >
+          <div class="image w-25">
+            <img
+              src="../../../../../../assets/images/dummy-user.jpg"
+              class="w-75 border rounded"
+            />
+          </div>
+          <div class="caption">
+            <h4 class="mb-1 fw-bold">
+              {{ student.first_name }} {{ student.last_name }}
+            </h4>
+            <p>
+              Group: {{ student.group.name }} | Average score:
+              {{ student.avg_score }}%
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
