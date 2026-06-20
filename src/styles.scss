@@ -1,5 +1,3 @@
-@import "/src/assets/styles/layout.scss"
-
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
 @use '@angular/material' as mat;
@@ -35,8 +33,8 @@ $Quiz_App-theme: mat.define-light-theme((
 @include mat.all-component-themes($Quiz_App-theme);
 
 /* You can add global styles to this file, and also import other style files */
-
 @import "/src/assets/styles/layout.scss";
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
